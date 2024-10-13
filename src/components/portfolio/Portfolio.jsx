@@ -11,9 +11,9 @@ const items = [
   },
   {
     id: 2,
-    title: "Data Cleanup and Analysis in Exce",
-    img: "https://images.pexels.com/photos/18023772/pexels-photo-18023772/free-photo-of-close-up-of-a-person-holding-a-wristwatch.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load",
-    desc: "Objective: Provide a brief summary of what you aimed to achieve. Example: “The objective of this project was to clean and analyze a dataset in Excel to derive meaningful insights and prepare the data for further analysis or reporting.",
+    title: "Data Cleanup and Analysis in Excel",
+    img: "https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    desc: "The objective of this project was to clean and analyze a dataset in Excel to derive meaningful insights and prepare the data for further analysis or reporting.",
   },
   {
     id: 3,

@@ -1,0 +1,46 @@
+.navbar {
+    height: 100px;
+    position: relative;
+
+    .wrapper {
+
+        max-width: 1366px;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        //background-color: rebeccapurple;
+        height: 100%;
+        position: relative;
+
+        span {
+            font-weight: bold;
+            margin-left: 200px;
+            padding-left: 200px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .social {
+            display: flex;
+            gap: 20px;
+            position: relative;
+            z-index: 2;
+
+            img {
+                width: 18px;
+                height: 18px;
+            }
+
+        }
+    }
+
+    .sidebar {
+        position: absolute;
+        /* Position absolutely within the .navbar container */
+        top: 0;
+        left: 0;
+        z-index: 1;
+        /* Set a lower z-index than .wrapper elements */
+    }
+}

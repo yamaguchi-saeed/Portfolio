@@ -58,13 +58,13 @@ const Contact = () => {
         <motion.h1 variants={variants}>Let’s work together</motion.h1>
         <motion.div className="item" variants={variants}>
           <h2>Mail</h2>
-          <span>is0637fv@ed.ritsumei.ac.jp</span>
+          <span>hankocksaeed@gmail.com</span>
         </motion.div>
         <motion.div className="item" variants={variants}>
           <h2>Address</h2>
-          <span>Heights Ookita Takehashicho 303
+          <span>1-44-14-117 Komaba, Meguro,
             <br/>
-          6-13 Takehashichō, Ibaraki, Osaka 567-0815</span>
+          Tokyo, 153-0041, JAPAN</span>
         </motion.div>
         <motion.div className="item" variants={variants}>
           <h2>Phone</h2>

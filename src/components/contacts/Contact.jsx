@@ -33,6 +33,24 @@ const Contact = () => {
     setError(false);
     setSuccess(false);
 
+    //Debugging purposes
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+    // Debug => log to see if they're loading
+    console.log('Service ID loaded:', serviceId ? 'Yes' : 'No');
+    console.log('Template ID loaded:', templateId ? 'Yes' : 'No');
+    console.log('Public Key loaded:', publicKey ? 'Yes' : 'No');
+
+    if (!serviceId || !templateId || !publicKey) {
+      console.error('EmailJS credentials missing!');
+      setError(true);
+      setLoading(false);
+      return;
+    }
+
+
     emailjs
       .sendForm(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,

@@ -23,25 +23,34 @@ const Contact = () => {
   const formRef = useRef();
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const isInView = useInView(ref, { margin: "-100px" });
 
   const sendEmail = (e) => {
     e.preventDefault();
+    setLoading(true);
+    setError(false);
+    setSuccess(false);
 
     emailjs
       .sendForm(
-        "service_94y20xo",
-        "template_v10u2oh",
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         formRef.current,
-        "pX_2hasGmGcuvjXIW"
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       )
       .then(
         (result) => {
-          setSuccess(true)
+          console.log("Email sent successfully:", result.text);
+          setSuccess(true);
+          setLoading(false);
+          formRef.current.reset();
         },
         (error) => {
+          console.error("Email send failed:", error.text);
           setError(true);
+          setLoading(false);
         }
       );
   };
@@ -55,7 +64,7 @@ const Contact = () => {
       whileInView="animate"
     >
       <motion.div className="textContainer" variants={variants}>
-        <motion.h1 variants={variants}>Let’s work together</motion.h1>
+        <motion.h1 variants={variants}>Let's work together</motion.h1>
         <motion.div className="item" variants={variants}>
           <h2>Mail</h2>
           <span>hankocksaeed@gmail.com</span>
@@ -110,10 +119,12 @@ const Contact = () => {
         >
           <input type="text" required placeholder="Name" name="name"/>
           <input type="email" required placeholder="Email" name="email"/>
-          <textarea rows={8} placeholder="Message" name="message"/>
-          <button>Submit</button>
-          {error && "Error"}
-          {success && "Success"}
+          <textarea rows={8} placeholder="Message" name="message" required/>
+          <button type="submit" disabled={loading}>
+            {loading ? "Sending..." : "Submit"}
+          </button>
+          {error && <p className="error-message">Failed to send message. Please try again.</p>}
+          {success && <p className="success-message">Message sent successfully!</p>}
         </motion.form>
       </div>
     </motion.div>
